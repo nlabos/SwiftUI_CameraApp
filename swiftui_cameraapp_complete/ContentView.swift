@@ -27,10 +27,11 @@ struct ContentView: View {
                             
                     }
                 } else {
-                    Text("No Images")
+                    Text("画像がありません")
                 }
+                //写真を撮るためのTake Photo Buttonの実装
 
-                Button("Take photo") {
+                Button("写真を選択する") {
                     isImagePickerPresented.toggle()
                 }
                 .sheet(isPresented: $isImagePickerPresented) {
