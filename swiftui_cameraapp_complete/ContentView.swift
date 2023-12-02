@@ -6,19 +6,80 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ContentView: View {
+    @State private var isImagePickerPresented: Bool = false
+    @State private var selectedImage: UIImage?
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                if let image = selectedImage {
+                    Image(uiImage: image)
+                        .resizable()
+                        .frame(width: 400, height: 400)
+                        .padding()
+
+                    NavigationLink(destination: EffectView(selectedImage: $selectedImage, processedImage: $selectedImage)) {
+                        Text("Effect")
+                            .padding()
+                            
+                    }
+                } else {
+                    Text("No Images")
+                }
+
+                Button("Take photo") {
+                    isImagePickerPresented.toggle()
+                }
+                .sheet(isPresented: $isImagePickerPresented) {
+                    ImagePicker(selectedImage: $selectedImage)
+                }
+            }
+            .padding()
+            .navigationTitle("CameraApp")
         }
-        .padding()
     }
 }
+struct ImagePicker: UIViewControllerRepresentable {
+    @Binding var selectedImage: UIImage?
 
+    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        @Binding var selectedImage: UIImage?
+
+        init(selectedImage: Binding<UIImage?>) {
+            _selectedImage = selectedImage
+        }
+
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let uiImage = info[.originalImage] as? UIImage {
+                selectedImage = uiImage
+            }
+
+            picker.dismiss(animated: true, completion: nil)
+        }
+
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            picker.dismiss(animated: true, completion: nil)
+        }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(selectedImage: $selectedImage)
+    }
+
+    func makeUIViewController(context: Context) -> UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.delegate = context.coordinator
+        picker.sourceType = .photoLibrary
+        return picker
+    }
+
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
+}
+
+// ContentViewのプレビュー
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

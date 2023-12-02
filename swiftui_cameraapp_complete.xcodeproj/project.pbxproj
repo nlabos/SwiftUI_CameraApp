@@ -14,6 +14,7 @@
 		445DBD812B10EAA500045217 /* swiftui_cameraapp_completeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DBD802B10EAA500045217 /* swiftui_cameraapp_completeTests.swift */; };
 		445DBD8B2B10EAA500045217 /* swiftui_cameraapp_completeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DBD8A2B10EAA500045217 /* swiftui_cameraapp_completeUITests.swift */; };
 		445DBD8D2B10EAA500045217 /* swiftui_cameraapp_completeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DBD8C2B10EAA500045217 /* swiftui_cameraapp_completeUITestsLaunchTests.swift */; };
+		445DBD9A2B11B1F400045217 /* EffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DBD992B11B1F400045217 /* EffectView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		445DBD862B10EAA500045217 /* swiftui_cameraapp_completeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swiftui_cameraapp_completeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		445DBD8A2B10EAA500045217 /* swiftui_cameraapp_completeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftui_cameraapp_completeUITests.swift; sourceTree = "<group>"; };
 		445DBD8C2B10EAA500045217 /* swiftui_cameraapp_completeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftui_cameraapp_completeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		445DBD992B11B1F400045217 /* EffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				445DBD6E2B10EAA300045217 /* swiftui_cameraapp_completeApp.swift */,
 				445DBD702B10EAA300045217 /* ContentView.swift */,
+				445DBD992B11B1F400045217 /* EffectView.swift */,
 				445DBD722B10EAA500045217 /* Assets.xcassets */,
 				445DBD742B10EAA500045217 /* swiftui_cameraapp_complete.entitlements */,
 				445DBD752B10EAA500045217 /* Preview Content */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				445DBD9A2B11B1F400045217 /* EffectView.swift in Sources */,
 				445DBD712B10EAA300045217 /* ContentView.swift in Sources */,
 				445DBD6F2B10EAA300045217 /* swiftui_cameraapp_completeApp.swift in Sources */,
 			);
