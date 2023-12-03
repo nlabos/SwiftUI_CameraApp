@@ -22,7 +22,7 @@ struct ContentView: View {
                         .padding()
 
                     NavigationLink(destination: EffectView(selectedImage: $selectedImage, processedImage: $selectedImage)) {
-                        Text("Effect")
+                        Text("エフェクト")
                             .padding()
                             
                     }
